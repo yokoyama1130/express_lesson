@@ -30,6 +30,15 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 
+// subredditなテンプレートデモ
+// :~でパラーメタを変数にできる
+app.get("/r/:subreddit", (req, res) => {
+    // reqでパラメータの値を取得する(paramsが/r/以下の値)これをsubredditという変数に代入する
+    // {}これは分割代入
+    const { subreddit } = req.params;
+    res.render("subreddit", { subreddit });
+});
+
 // テンプレートにデータを渡す
 app.get("/rand", (req, res) => {
     // ロジックをここで書いて、変数に代入する
