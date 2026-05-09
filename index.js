@@ -30,10 +30,17 @@ app.get("/", (req, res) => {
     res.render("home");
 });
 
+// テンプレートにデータを渡す
+app.get("/rand", (req, res) => {
+    // ロジックをここで書いて、変数に代入する
+    const num = Math.floor(Math.random() * 10) + 1;
+    // render の第二引数にオブジェクトとして代入する
+    // テンプレートの方でrandというキーでnumの値を呼び出すことができる。
+    res.render("random", { rand: num });
+    // ちなみにキーと値が同じ時は { num } という風に省略することができる。左の例だとnumというキーにnumという値
+});
+
 // サーバー起動
 app.listen(port, () => {
     console.log("ポート3000で待受中。。。");
 });
-
-
-
