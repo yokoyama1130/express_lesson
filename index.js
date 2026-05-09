@@ -49,6 +49,14 @@ app.get("/rand", (req, res) => {
     // ちなみにキーと値が同じ時は { num } という風に省略することができる。左の例だとnumというキーにnumという値
 });
 
+// ejsでループ
+app.get("/cats", (req, res) => {
+    const cats = [
+        "たま", "トラ", "クロ", "モモ", "ジジ"
+    ];
+    res.render("cats", { cats });
+});
+
 // サーバー起動
 app.listen(port, () => {
     console.log("ポート3000で待受中。。。");
